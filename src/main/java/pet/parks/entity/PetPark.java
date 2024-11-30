@@ -24,7 +24,7 @@ public class PetPark {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long petParkId;
 	private String parkName;
-	private String direactions;
+	private String directions;
 	private String stateOrProvince;
 	private String country;
 	
