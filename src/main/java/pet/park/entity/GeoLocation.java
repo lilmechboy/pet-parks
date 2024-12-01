@@ -1,4 +1,4 @@
-package pet.parks.entity;
+package pet.park.entity;
 
 import java.math.BigDecimal;
 

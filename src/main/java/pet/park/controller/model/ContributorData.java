@@ -5,10 +5,10 @@ import java.util.Set;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import pet.parks.entity.Amenity;
-import pet.parks.entity.Contributor;
-import pet.parks.entity.GeoLocation;
-import pet.parks.entity.PetPark;
+import pet.park.entity.Amenity;
+import pet.park.entity.Contributor;
+import pet.park.entity.GeoLocation;
+import pet.park.entity.PetPark;
 
 @Data
 @NoArgsConstructor
@@ -43,7 +43,7 @@ public class ContributorData {
 
 		PetParkResponse(PetPark petPark) {
 			petParkId = petPark.getPetParkId();
-			parkName = petPark.getPetParkName();
+			parkName = petPark.getParkName();
 			directions = petPark.getDirections();
 			stateOrProvince = petPark.getStateOrProvince();
 			country = petPark.getCountry();

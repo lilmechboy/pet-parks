@@ -1,4 +1,4 @@
-package pet.parks.entity;
+package pet.park.entity;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -23,7 +23,7 @@ public class PetPark {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long petParkId;
-	private String petParkName;
+	private String parkName;
 	private String directions;
 	private String stateOrProvince;
 	private String country;

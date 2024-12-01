@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pet.park.controller.model.ContributorData;
 import pet.park.dao.ContributorDao;
-import pet.parks.entity.Contributor;
+import pet.park.entity.Contributor;
 
 @Service
 public class ParkService {
