@@ -5,7 +5,7 @@ import java.util.Set;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Value;
+import pet.parks.entity.Amenity;
 import pet.parks.entity.Contributor;
 import pet.parks.entity.GeoLocation;
 import pet.parks.entity.PetPark;
@@ -25,19 +25,20 @@ public class ContributorData {
 		contributorName = contributor.getContributorName();
 		contributorEmail = contributor.getContributorEmail();
 		
-		for (PetPark petPark.contributor.getPetParks()) {
-			petParks.add(new PetParkRessponse(petPark));
+		for (PetPark petPark : contributor.getPetParks()) {
+			petParks.add(new PetParkResponse(petPark));
 		}
 	}
 	
-	@Value
+	@Data
+	@NoArgsConstructor
 	static class PetParkResponse {
 		private Long petParkId;
 		private String parkName;
-		private String direactions;
+		private String directions;
 		private String stateOrProvince;
 		private String country;
-		private GeoLocation geolocation;
+		private GeoLocation geoLocation;
 		private Set<String> amenities = new HashSet<>();
 
 		PetParkResponse(PetPark petPark) {
@@ -52,7 +53,7 @@ public class ContributorData {
 				amenities.add(amenity.getAmenity());
 			}
 			
-		}
+		}	
 
 	}
 }

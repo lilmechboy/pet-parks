@@ -23,7 +23,7 @@ public class PetPark {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long petParkId;
-	private String parkName;
+	private String petParkName;
 	private String directions;
 	private String stateOrProvince;
 	private String country;
