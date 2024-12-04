@@ -47,7 +47,7 @@ public class ContributorData {
 			directions = petPark.getDirections();
 			stateOrProvince = petPark.getStateOrProvince();
 			country = petPark.getCountry();
-			geoLocation = new GeoLocation(petPark.getGeolocation());
+			geoLocation = new GeoLocation(petPark.getGeoLocation());
 			
 			for(Amenity amenity : petPark.getAmenities()) {
 				amenities.add(amenity.getAmenity());
