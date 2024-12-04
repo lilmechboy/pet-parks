@@ -6,11 +6,12 @@ import java.util.NoSuchElementException;
 
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.ServletWebRequest;
 import org.springframework.web.context.request.WebRequest;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ResponseStatus;
+
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 
@@ -29,6 +30,21 @@ public class GlobalControllerErrorHandler {
 		private int statusCode;
 		private String timeStamp;
 		private String uri;
+	}
+
+	
+	  @ExceptionHandler(UnsupportedOperationException.class)
+	  
+	  @ResponseStatus(HttpStatus.METHOD_NOT_ALLOWED) public ExceptionMessage
+	  handleUnsupportedOperationException( UnsupportedOperationException ex,
+	  WebRequest webRequest) { return buildExceptionMessage(ex,
+	  HttpStatus.METHOD_NOT_ALLOWED, webRequest, LogStatus.MESSAGE_ONLY); 
+	  }
+	 	
+	@ExceptionHandler(Exception.class)
+	@ResponseStatus(code = HttpStatus.INTERNAL_SERVER_ERROR)
+	public ExceptionMessage handleException(Exception ex, WebRequest webRequest) {
+		return buildExceptionMessage(ex, HttpStatus.INTERNAL_SERVER_ERROR, webRequest, LogStatus.STACK_TRACE);
 	}
 	
 	@ExceptionHandler(NoSuchElementException.class)
