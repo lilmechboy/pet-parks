@@ -1,4 +1,4 @@
-/*INSERT INTO amenity (amenity) VALUES ('dog friendnly');
+INSERT INTO amenity (amenity) VALUES ('dog friendnly');
 INSERT INTO amenity (amenity) VALUES ('cat friendly');
 INSERT INTO amenity (amenity) VALUES ('turtle friendly');
 INSERT INTO amenity (amenity) VALUES ('chicken friendly');
@@ -10,4 +10,3 @@ INSERT INTO amenity (amenity) VALUES ('wifi');
 INSERT INTO amenity (amenity) VALUES ('vending machines');
 INSERT INTO amenity (amenity) VALUES ('lake');
 INSERT INTO amenity (amenity) VALUES ('docent');
-*/
