@@ -32,7 +32,7 @@ public class ParkController {
 	@ResponseStatus(code = HttpStatus.CREATED)
 	public ContributorData insertContributor(
 			@RequestBody ContributorData contributorData) {
-		log.info("Creating Contributor {}", contributorData);
+		log.info("Creating contributor {}", contributorData);
 		return parkService.saveContributor(contributorData);
 	}
 	
@@ -53,8 +53,8 @@ public class ParkController {
 	
 	@GetMapping("/contributor/{contributorId}")
 	public ContributorData retrieveContributorById(@PathVariable Long contributorId) {
-	log.info("Retrieving contributor with ID = {}", contributorId);
-	return parkService.retrieveContributorById(contributorId);
+		log.info("Retrieving contributor with ID = {}", contributorId);
+		return parkService.retrieveContributorById(contributorId);
 	}
 	
 	@DeleteMapping("/contributor")
@@ -75,7 +75,7 @@ public class ParkController {
 		
 	}
 	
-	@PostMapping("/contributor/{contributorId/park}")
+	@PostMapping("/contributor/{contributorId}/park")
 	@ResponseStatus(code = HttpStatus.CREATED)
 	public PetParkData insertPetPark(@PathVariable Long contributorId,
 			@RequestBody PetParkData petParkData) {
@@ -94,5 +94,14 @@ public class ParkController {
 		log.info("reating park {} for contributor with ID={}", petParkData, contributorId);
 		
 		return parkService.savePetPark(contributorId, petParkData);
+	}
+	
+	@GetMapping("contributor/{contributorId}/park/{parkId}")
+	public PetParkData retrievePetParkById(@PathVariable Long contributorId,
+			@PathVariable Long parkId) {
+		log.info("Retrieving pat park with ID={} for contributor with ID={}",
+				parkId, contributorId);
+		
+		return parkService.retrievePetParkById(contributorId,parkId);
 	}
 }

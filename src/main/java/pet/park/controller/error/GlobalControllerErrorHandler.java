@@ -31,15 +31,22 @@ public class GlobalControllerErrorHandler {
 		private String timeStamp;
 		private String uri;
 	}
-
 	
-	  @ExceptionHandler(UnsupportedOperationException.class)
+	@ExceptionHandler(IllegalStateException.class)
+	@ResponseStatus(code = HttpStatus.BAD_REQUEST)
+	public ExceptionMessage handleIllegalStateException(IllegalStateException ex,
+			WebRequest webRequest) {
+		return buildExceptionMessage(ex, HttpStatus.BAD_REQUEST, webRequest,
+				LogStatus.MESSAGE_ONLY);
+	}
+	
+	@ExceptionHandler(UnsupportedOperationException.class)
 	  
-	  @ResponseStatus(HttpStatus.METHOD_NOT_ALLOWED) public ExceptionMessage
-	  handleUnsupportedOperationException( UnsupportedOperationException ex,
-	  WebRequest webRequest) { return buildExceptionMessage(ex,
-	  HttpStatus.METHOD_NOT_ALLOWED, webRequest, LogStatus.MESSAGE_ONLY); 
-	  }
+	@ResponseStatus(HttpStatus.METHOD_NOT_ALLOWED) public ExceptionMessage
+	handleUnsupportedOperationException( UnsupportedOperationException ex,
+	WebRequest webRequest) { return buildExceptionMessage(ex,
+	HttpStatus.METHOD_NOT_ALLOWED, webRequest, LogStatus.MESSAGE_ONLY); 
+	}
 	 	
 	@ExceptionHandler(Exception.class)
 	@ResponseStatus(code = HttpStatus.INTERNAL_SERVER_ERROR)
@@ -88,7 +95,6 @@ public class GlobalControllerErrorHandler {
 		excMsg.setStatusReason(statusReason);
 		excMsg.setTimeStamp(timestamp);
 		excMsg.setUri(uri);
-		
 		
 		return excMsg;
 	}

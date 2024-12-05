@@ -44,6 +44,4 @@ public class PetPark {
 			joinColumns = @JoinColumn(name = "pet_park_id"), 
 			inverseJoinColumns = @JoinColumn(name = "amenity_id"))
 	private Set<Amenity> amenities = new HashSet<>();
-
-
 }
