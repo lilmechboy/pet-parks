@@ -96,7 +96,6 @@ public class ParkService {
 	public void deleteContributorById(Long contributorId) {
 		Contributor contributor = findContributorById(contributorId);
 		contributorDao.delete(contributor);
-		
 	}
 
 	@Transactional(readOnly = false)

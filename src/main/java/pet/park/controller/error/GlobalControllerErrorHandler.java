@@ -41,17 +41,19 @@ public class GlobalControllerErrorHandler {
 	}
 	
 	@ExceptionHandler(UnsupportedOperationException.class)
-	  
-	@ResponseStatus(HttpStatus.METHOD_NOT_ALLOWED) public ExceptionMessage
+	@ResponseStatus(HttpStatus.METHOD_NOT_ALLOWED) 
+	public ExceptionMessage
 	handleUnsupportedOperationException( UnsupportedOperationException ex,
-	WebRequest webRequest) { return buildExceptionMessage(ex,
-	HttpStatus.METHOD_NOT_ALLOWED, webRequest, LogStatus.MESSAGE_ONLY); 
+	WebRequest webRequest) { 
+		return buildExceptionMessage(ex,HttpStatus.METHOD_NOT_ALLOWED,
+				webRequest, LogStatus.MESSAGE_ONLY); 
 	}
 	 	
 	@ExceptionHandler(Exception.class)
 	@ResponseStatus(code = HttpStatus.INTERNAL_SERVER_ERROR)
 	public ExceptionMessage handleException(Exception ex, WebRequest webRequest) {
-		return buildExceptionMessage(ex, HttpStatus.INTERNAL_SERVER_ERROR, webRequest, LogStatus.STACK_TRACE);
+		return buildExceptionMessage(ex, HttpStatus.INTERNAL_SERVER_ERROR, webRequest,
+				LogStatus.STACK_TRACE);
 	}
 	
 	@ExceptionHandler(NoSuchElementException.class)

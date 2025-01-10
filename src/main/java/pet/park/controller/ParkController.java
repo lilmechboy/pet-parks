@@ -79,7 +79,7 @@ public class ParkController {
 	@ResponseStatus(code = HttpStatus.CREATED)
 	public PetParkData insertPetPark(@PathVariable Long contributorId,
 			@RequestBody PetParkData petParkData) {
-		log.info("reating park {} for contributor with ID={}", petParkData, contributorId);
+		log.info("Creating park {} for contributor with ID={}", petParkData, contributorId);
 		
 		return parkService.savePetPark(contributorId, petParkData);
 	}
